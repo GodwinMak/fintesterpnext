@@ -1,0 +1,52 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-02-24 13:43:52.020577",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "bank_name",
+  "credits",
+  "debits",
+  "average_month_credits"
+ ],
+ "fields": [
+  {
+   "fieldname": "bank_name",
+   "fieldtype": "Link",
+   "label": "Bank Name",
+   "options": "Bank"
+  },
+  {
+   "fieldname": "credits",
+   "fieldtype": "Currency",
+   "label": "Credits",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "debits",
+   "fieldtype": "Currency",
+   "label": "Debits"
+  },
+  {
+   "fieldname": "average_month_credits",
+   "fieldtype": "Currency",
+   "label": "Average Month Credits",
+   "non_negative": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-02-24 13:43:52.020577",
+ "modified_by": "Administrator",
+ "module": "Accounts",
+ "name": "Borrower Bank Statements",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
