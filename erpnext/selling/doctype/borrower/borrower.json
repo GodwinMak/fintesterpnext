@@ -1,0 +1,200 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-02-07 13:13:46.720516",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "first_name",
+  "middle_name",
+  "last_name",
+  "full_name",
+  "borrower_type",
+  "borrower_group",
+  "column_break_kccs",
+  "gender",
+  "marital_status",
+  "loan_officer",
+  "borrower_image",
+  "status",
+  "address_and_contact",
+  "region",
+  "district",
+  "ward",
+  "street",
+  "residence_type",
+  "column_break_zput",
+  "mobile_number",
+  "email_id",
+  "work_place",
+  "employers_physical_address",
+  "identification_information",
+  "identification"
+ ],
+ "fields": [
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "First Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "middle_name",
+   "fieldtype": "Data",
+   "label": "Middle Name"
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "label": "Last Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "borrower_type",
+   "fieldtype": "Select",
+   "label": "Borrower Type",
+   "options": "Company\nIndividual\nPartnership"
+  },
+  {
+   "fieldname": "borrower_group",
+   "fieldtype": "Link",
+   "label": "Borrower Group",
+   "options": "Borrower Group"
+  },
+  {
+   "fieldname": "address_and_contact",
+   "fieldtype": "Tab Break",
+   "label": "Address & Contact"
+  },
+  {
+   "fieldname": "column_break_kccs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "options": "Gender",
+   "reqd": 1
+  },
+  {
+   "fieldname": "marital_status",
+   "fieldtype": "Select",
+   "label": "Marital Status",
+   "options": "Single\nMarried\nDivorced\nWidowed"
+  },
+  {
+   "fieldname": "loan_officer",
+   "fieldtype": "Link",
+   "label": "Loan Officer",
+   "options": "User"
+  },
+  {
+   "fieldname": "borrower_image",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "Borrower Image",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nInactive",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "region",
+   "fieldtype": "Data",
+   "label": "Region"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Data",
+   "label": "District"
+  },
+  {
+   "fieldname": "ward",
+   "fieldtype": "Data",
+   "label": "Ward"
+  },
+  {
+   "fieldname": "street",
+   "fieldtype": "Data",
+   "label": "Street"
+  },
+  {
+   "fieldname": "residence_type",
+   "fieldtype": "Select",
+   "label": "Residence Type",
+   "options": "Rented\nOwned"
+  },
+  {
+   "fieldname": "column_break_zput",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile Number"
+  },
+  {
+   "fieldname": "email_id",
+   "fieldtype": "Data",
+   "label": "Email ID"
+  },
+  {
+   "fieldname": "work_place",
+   "fieldtype": "Data",
+   "label": "Work Place"
+  },
+  {
+   "fieldname": "employers_physical_address",
+   "fieldtype": "Data",
+   "label": "Employer's Physical Address"
+  },
+  {
+   "fieldname": "identification_information",
+   "fieldtype": "Tab Break",
+   "label": "Identification Information"
+  },
+  {
+   "fieldname": "identification",
+   "fieldtype": "Table",
+   "label": "Identification",
+   "options": "Identification Information"
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-02-07 19:45:43.375222",
+ "modified_by": "Administrator",
+ "module": "Selling",
+ "name": "Borrower",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

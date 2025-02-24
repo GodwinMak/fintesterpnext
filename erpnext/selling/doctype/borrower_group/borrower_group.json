@@ -1,0 +1,262 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-02-07 12:47:37.657535",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "group_details_section",
+  "group_name",
+  "group_type",
+  "is_parent",
+  "parent_borrower_group",
+  "leadership_section",
+  "chairperson",
+  "secretary",
+  "treasurer",
+  "section_break_wubr",
+  "enterprise_groups",
+  "section_break_nkyg",
+  "group_members",
+  "repayment_details_section",
+  "repayment_schedule_type",
+  "day_of_week",
+  "day_of_the_month",
+  "column_break_wlbj",
+  "repayment_method",
+  "group_eligibility",
+  "total_subgroups",
+  "min_required_subgroups",
+  "min_members_per_subgroup",
+  "max_members_per_subgroup",
+  "min_required_members",
+  "column_break_ryzg",
+  "is_eligible_for_loan",
+  "max_total_members",
+  "total_members",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "group_details_section",
+   "fieldtype": "Section Break",
+   "label": "Group Details"
+  },
+  {
+   "fieldname": "group_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Group Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "group_type",
+   "fieldtype": "Select",
+   "label": "Group Type",
+   "options": "Grameen Group Lending\nOther Group Lending"
+  },
+  {
+   "depends_on": "eval:!doc.is_parent && doc.group_type == \"Grameen Group Lending\"",
+   "fieldname": "parent_borrower_group",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Parent Borrower Group",
+   "options": "Borrower Group"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.group_type == \"Grameen Group Lending\"",
+   "fieldname": "is_parent",
+   "fieldtype": "Check",
+   "label": "Is Parent"
+  },
+  {
+   "fieldname": "leadership_section",
+   "fieldtype": "Section Break",
+   "label": "Leadership"
+  },
+  {
+   "fieldname": "chairperson",
+   "fieldtype": "Link",
+   "label": "Chairperson",
+   "options": "Borrower"
+  },
+  {
+   "fieldname": "section_break_nkyg",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:!doc.is_parent || doc.group_type == \"Other Group Lending\"\n",
+   "fieldname": "group_members",
+   "fieldtype": "Table",
+   "label": "Group Members",
+   "options": "Group Members",
+   "read_only": 1
+  },
+  {
+   "fieldname": "secretary",
+   "fieldtype": "Link",
+   "label": "Secretary",
+   "options": "Borrower"
+  },
+  {
+   "fieldname": "treasurer",
+   "fieldtype": "Link",
+   "label": "Treasurer",
+   "options": "Borrower"
+  },
+  {
+   "fieldname": "section_break_wubr",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "is_parent",
+   "fieldname": "enterprise_groups",
+   "fieldtype": "Table",
+   "label": "Enterprise Groups",
+   "options": "Enterprise Group",
+   "read_only": 1
+  },
+  {
+   "fieldname": "repayment_details_section",
+   "fieldtype": "Section Break",
+   "label": "Repayment Details"
+  },
+  {
+   "description": "The schedule type that will be used for generating the term loan schedules (will affect the payment date and monthly repayment amount)",
+   "fieldname": "repayment_schedule_type",
+   "fieldtype": "Select",
+   "label": "Repayment Schedule Type",
+   "options": "\nMonthly\nWeekly\nQuarterly"
+  },
+  {
+   "depends_on": "eval:doc.repayment_schedule_type == \"Weekly\"",
+   "fieldname": "day_of_week",
+   "fieldtype": "Select",
+   "label": "Day of the Week",
+   "options": "\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\nSunday"
+  },
+  {
+   "depends_on": "eval:doc.repayment_schedule_type == \"Monthly\"",
+   "fieldname": "day_of_the_month",
+   "fieldtype": "Select",
+   "label": "Day of the Month",
+   "options": "\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31"
+  },
+  {
+   "fieldname": "column_break_wlbj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "repayment_method",
+   "fieldtype": "Select",
+   "label": "Repayment Method",
+   "options": "\nRepay Redusing Amount Over Number per Period\nRepay Fixed Amount Over Number of Periods"
+  },
+  {
+   "fieldname": "group_eligibility",
+   "fieldtype": "Section Break",
+   "label": "Group Eligibility"
+  },
+  {
+   "depends_on": "eval: doc.is_parent || doc.group_type == \"Other Group Lending\"",
+   "description": "Total number of members",
+   "fieldname": "total_members",
+   "fieldtype": "Int",
+   "label": "Total Members",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval: !doc.is_parent && doc.group_type == \"Grameen Group Lending\"",
+   "fieldname": "total_subgroups",
+   "fieldtype": "Int",
+   "label": "Total Number of Member in Enterprise Group",
+   "non_negative": 1
+  },
+  {
+   "default": "0",
+   "depends_on": "eval: doc.is_parent",
+   "fieldname": "is_eligible_for_loan",
+   "fieldtype": "Check",
+   "label": "Is Eligible For Loan",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval: doc.is_parent",
+   "fieldname": "min_required_subgroups",
+   "fieldtype": "Int",
+   "label": "Min Number Of Enterprise Groups",
+   "non_negative": 1
+  },
+  {
+   "depends_on": "eval:!doc.is_parent && !doc.group_type == \"Other Group Lending\"",
+   "fieldname": "min_members_per_subgroup",
+   "fieldtype": "Int",
+   "label": "Min Member Per Enterprise Group",
+   "non_negative": 1
+  },
+  {
+   "depends_on": "eval:!doc.is_parent && !doc.group_type == \"Other Group Lending\"",
+   "fieldname": "max_members_per_subgroup",
+   "fieldtype": "Int",
+   "label": "Max Members Per Enterprise Group",
+   "non_negative": 1
+  },
+  {
+   "depends_on": "eval: doc.is_parent",
+   "fieldname": "max_total_members",
+   "fieldtype": "Int",
+   "label": "Max Total Members",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "column_break_ryzg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nActive\nInactive",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.group_type == \"Other Group Lending\"",
+   "fieldname": "min_required_members",
+   "fieldtype": "Int",
+   "label": "Min Required Members",
+   "non_negative": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Group Loan Status Info",
+   "link_fieldname": "group_name"
+  }
+ ],
+ "modified": "2025-02-09 13:41:26.881361",
+ "modified_by": "Administrator",
+ "module": "Selling",
+ "name": "Borrower Group",
+ "nsm_parent_field": "parent_borrower_group",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,31 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-02-07 13:31:27.071655",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "group_member_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "group_member_name",
+   "fieldtype": "Link",
+   "label": "Group Member Name",
+   "options": "Borrower"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-02-07 14:47:53.859917",
+ "modified_by": "Administrator",
+ "module": "Selling",
+ "name": "Group Members",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
